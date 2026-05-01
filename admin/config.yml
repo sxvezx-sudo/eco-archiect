@@ -6,25 +6,101 @@ media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
 collections:
-  - name: "projects"
-    label: "ผลงาน"
-    folder: "_data/projects"
+
+  # ──────────────────────────────────────
+  # PROJECTS
+  # ──────────────────────────────────────
+  - name: projects
+    label: Projects
+    folder: _data/projects
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "ชื่อโปรเจกต์", name: "title", widget: "string"}
-      - {label: "รูปภาพหลัก", name: "image", widget: "image"}
-      - {label: "คำอธิบาย", name: "description", widget: "text"}
-      - {label: "ปีที่สร้าง", name: "year", widget: "string"}
-      - {label: "สถานที่", name: "location", widget: "string"}
+      - { name: title,         label: Title,           widget: string }
+      - { name: published,     label: Published,        widget: boolean, default: true }
+      - { name: main_image,    label: "Main Image",     widget: image }
+      - { name: type,          label: Type,             widget: string,  hint: "e.g. Hospitality / Eco Hotel" }
+      - { name: year,          label: Year,             widget: number }
+      - { name: location,      label: Location,         widget: string }
+      - { name: description,   label: Description,      widget: text }
+      - { name: design,        label: "Design By",      widget: string,  default: "Eco Architect Co.,Ltd." }
+      - { name: photography,   label: Photography,      widget: string,  required: false }
+      - { name: collaboration, label: Collaboration,    widget: string,  required: false }
+      - name: gallery
+        label: Gallery
+        widget: list
+        field: { name: image, label: Image, widget: image }
 
-  - name: "settings"
-    label: "ข้อมูลบริษัท"
+  # ──────────────────────────────────────
+  # AWARDS
+  # ──────────────────────────────────────
+  - name: awards
+    label: Awards
+    folder: _data/awards
+    create: true
+    slug: "{{year}}-{{slug}}"
+    fields:
+      - { name: year,         label: Year,          widget: number }
+      - { name: title,        label: "Award Name",  widget: string }
+      - { name: category,     label: Category,      widget: string }
+      - { name: project_name, label: "Project Name", widget: string }
+      - { name: project_url,  label: "Project URL", widget: string, required: false }
+      - { name: location,     label: Location,      widget: string }
+
+  # ──────────────────────────────────────
+  # TEAM
+  # ──────────────────────────────────────
+  - name: team
+    label: "Team Members"
+    folder: _data/team
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: name,  label: Name,            widget: string }
+      - { name: role,  label: Role,             widget: string }
+      - { name: photo, label: Photo,            widget: image }
+      - { name: bio,   label: Bio,              widget: text,   required: false }
+      - { name: order, label: "Display Order",  widget: number, default: 99 }
+
+  # ──────────────────────────────────────
+  # TESTIMONIALS
+  # ──────────────────────────────────────
+  - name: testimonials
+    label: Testimonials
+    folder: _data/testimonials
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: active,            label: "Show on Homepage", widget: boolean, default: false }
+      - { name: project_title,     label: "Project Title",    widget: string }
+      - { name: project_url,       label: "Project URL",      widget: string,   required: false }
+      - { name: image_large,       label: "Large Image",      widget: image }
+      - { name: image_small,       label: "Small Image",      widget: image,    required: false }
+      - { name: quote,             label: Quote,              widget: text,     hint: "Use double line break for paragraph spacing" }
+      - { name: author,            label: Author,             widget: string,   hint: "e.g. คุณคำรน สุทธิ, บ้านพักอาศัย ถลาง ภูเก็ต" }
+      - { name: meta_design,       label: "Designed By",      widget: string,   required: false }
+      - { name: meta_photography,  label: Photography,        widget: string,   required: false }
+      - { name: meta_location,     label: Location,           widget: string,   required: false }
+      - { name: meta_collaboration,label: Collaboration,      widget: string,   required: false }
+
+  # ──────────────────────────────────────
+  # SETTINGS (single files)
+  # ──────────────────────────────────────
+  - name: settings
+    label: Settings
     files:
-      - label: "ข้อมูลทั่วไป"
-        name: "general"
-        file: "_data/settings.json"
+      - name: contact
+        label: "Contact & Site Info"
+        file: _data/settings/contact.md
         fields:
-          - {label: "ชื่อบริษัท", name: "company_name", widget: "string"}
-          - {label: "อีเมล", name: "email", widget: "string"}
-          - {label: "เบอร์โทร", name: "phone", widget: "string"}
+          - { name: company_name,   label: "Company Name",  widget: string }
+          - { name: email,          label: Email,           widget: string }
+          - { name: phone,          label: Phone,           widget: string }
+          - { name: address,        label: Address,         widget: string }
+          - { name: instagram_url,  label: "Instagram URL", widget: string, required: false }
+          - { name: facebook_url,   label: "Facebook URL",  widget: string, required: false }
+          - { name: stat_1, label: "Stat 1", widget: string, default: "มากกว่า 100+ ผลงาน" }
+          - { name: stat_2, label: "Stat 2", widget: string, default: "18 รางวัล" }
+          - { name: stat_3, label: "Stat 3", widget: string, default: "13 การตีพิมพ์" }
+          - { name: stat_4, label: "Stat 4", widget: string, default: "ประสบการณ์กว่า 20 ปี" }
+          - { name: about_text, label: "Studio Description (Homepage)", widget: text }
