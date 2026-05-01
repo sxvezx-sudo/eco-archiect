@@ -1,0 +1,30 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+collections:
+  - name: "projects"
+    label: "ผลงาน"
+    folder: "_data/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "ชื่อโปรเจกต์", name: "title", widget: "string"}
+      - {label: "รูปภาพหลัก", name: "image", widget: "image"}
+      - {label: "คำอธิบาย", name: "description", widget: "text"}
+      - {label: "ปีที่สร้าง", name: "year", widget: "string"}
+      - {label: "สถานที่", name: "location", widget: "string"}
+
+  - name: "settings"
+    label: "ข้อมูลบริษัท"
+    files:
+      - label: "ข้อมูลทั่วไป"
+        name: "general"
+        file: "_data/settings.json"
+        fields:
+          - {label: "ชื่อบริษัท", name: "company_name", widget: "string"}
+          - {label: "อีเมล", name: "email", widget: "string"}
+          - {label: "เบอร์โทร", name: "phone", widget: "string"}
