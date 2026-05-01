@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Architect Co.,Ltd.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+Thai+Looped:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* ─────────────────────────────────────
+           HERO
+        ───────────────────────────────────── */
+        .hero {
+            padding: var(--sp-xxxl) var(--sp-margin) var(--sp-xl);
+            display: flex; flex-direction: column; gap: var(--sp-md);
+        }
+        .hero-top {
+            display: grid; grid-template-columns: repeat(12, 1fr);
+            gap: var(--sp-gap); padding: var(--sp-md) 0;
+        }
+        .hero-heading { grid-column: 1 / span 7; display: flex; align-items: center; }
+        .hero-heading h1 {
+            font-weight: 600; font-size: var(--fs-h1);
+            line-height: var(--lh-h1); letter-spacing: var(--ls-h1);
+        }
+        .hero-sub {
+            grid-column: 9 / span 3; align-self: flex-end;
+            display: flex; flex-direction: column; gap: var(--sp-sm);
+        }
+        .hero-sub p { font-family: var(--font-loop); font-size: var(--fs-body); line-height: var(--lh-body); }
+        .hero-image img { width: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: center; display: block; }
+
+        /* ─────────────────────────────────────
+           STUDIO
+        ───────────────────────────────────── */
+        .studio { padding: var(--sp-xl) var(--sp-margin); }
+        .studio-grid {
+            display: grid; grid-template-columns: repeat(12, 1fr);
+            gap: var(--sp-md) var(--sp-gap);
+        }
+        .studio-eyebrow { grid-column: 1 / span 2;  grid-row: 1; align-self: flex-start; }
+        .studio-h2      { grid-column: 6 / span 7;  grid-row: 1; align-self: flex-start; }
+        .studio-h2 h2 {
+            font-weight: 600; font-size: var(--fs-h2a);
+            line-height: var(--lh-h2a); letter-spacing: var(--ls-h2a);
+        }
+        .studio-row {
+            grid-column: 1 / span 12; grid-row: 2;
+            display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--sp-gap);
+        }
+        .studio-stats { grid-column: 1 / span 2; align-self: stretch; display: flex; flex-direction: column; }
+        .stat-item {
+            border-bottom: 1px solid var(--c-divider); padding: var(--sp-xs) 0;
+            display: flex; align-items: center; gap: var(--sp-xs);
+        }
+        .stat-item span {
+            font-weight: 700; font-size: var(--fs-label); line-height: var(--lh-label);
+            letter-spacing: var(--ls-label); text-transform: uppercase; white-space: nowrap;
+        }
+        .studio-text { grid-column: 6 / span 3; display: flex; flex-direction: column; gap: var(--sp-md); align-self: stretch; }
+        .studio-text p { font-family: var(--font-loop); font-size: var(--fs-body); line-height: var(--lh-body); }
+        .studio-img { grid-column: 10 / span 3; aspect-ratio: 3/4; overflow: hidden; }
+        .studio-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+        /* ─────────────────────────────────────
+           PROJECTS
+        ───────────────────────────────────── */
+        .projects {
+            padding: var(--sp-xl) var(--sp-margin);
+            display: flex; flex-direction: column; gap: var(--sp-md);
+        }
+        .proj-header {
+            border-bottom: 1px solid var(--c-divider); padding-bottom: var(--sp-md);
+            display: flex; align-items: flex-end; justify-content: space-between;
+        }
+        .proj-header h2 {
+            font-weight: 600; font-size: var(--fs-h2b);
+            line-height: var(--lh-h2b); letter-spacing: var(--ls-h2b); white-space: nowrap;
+        }
+        .proj-count { display: none; }
+
+        .projects-grid {
+            display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--sp-gap);
+        }
+
+        .proj-cta-row { display: grid; grid-template-columns: repeat(12, 1fr); }
+        .proj-cta-btn { grid-column: 5 / span 4; }
+
+        /* ─────────────────────────────────────
+           TESTIMONIAL
+        ───────────────────────────────────── */
+        .testimonial {
+            padding: var(--sp-xl) var(--sp-margin);
+            display: flex; flex-direction: column; gap: var(--sp-sm);
+        }
+        .test-images { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--sp-gap); align-items: stretch; }
+        .test-img-lg { grid-column: 1 / span 8; aspect-ratio: unset; overflow: hidden; }
+        .test-img-sm { grid-column: 9 / span 4; aspect-ratio: unset; overflow: hidden;}
+        .test-img-lg img, .test-img-sm img { width: 100%; height: 100%; object-fit: cover; }
+
+        .test-wrapper { display: flex; flex-direction: column; gap: var(--sp-sm); width: 100%; }
+        .test-content { display: flex; flex-direction: column; gap: var(--sp-sm); }
+        .test-header {
+            border-bottom: 1px solid var(--c-divider-sec); padding: var(--sp-sm) 0;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .test-header h3 { font-weight: 700; font-size: var(--fs-label); line-height: 1.25rem; }
+        .test-body { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--sp-gap); }
+        .test-quote { grid-column: 1 / span 5; display: flex; flex-direction: column; gap: var(--sp-md); }
+        .test-quote p { font-family: var(--font-loop); font-size: var(--fs-body); line-height: var(--lh-body); }
+        .test-author { font-family: var(--font) !important; font-weight: 700 !important; font-size: var(--fs-label) !important; line-height: 1.25rem !important; }
+        .test-meta { grid-column: 9 / span 4; display: flex; flex-direction: column; }
+        .meta-row {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-gap);
+            border-bottom: 1px solid var(--c-divider-sec);
+        }
+        .meta-label { grid-column: 1; padding: var(--sp-xs) 0; font-weight: 700; font-size: var(--fs-label); line-height: 1.25rem; white-space: nowrap; }
+        .meta-val   { grid-column: 2 / span 3; display: flex; align-items: center; font-family: var(--font-loop); font-size: var(--fs-body); line-height: var(--lh-body); white-space: nowrap; }
+
+        /* ─────────────────────────────────────
+           MEDIA
+        ───────────────────────────────────── */
+        .media {
+            padding: var(--sp-xl) var(--sp-margin);
+            display: flex; flex-direction: column; gap: var(--sp-md);
+        }
+        .media-grid {
+            display: grid; grid-template-columns: repeat(6, 1fr);
+            gap: var(--sp-gap);
+        }
+        .media-cell {
+            aspect-ratio: 1 / 1; border: 1px solid var(--c-divider-sec); display: flex;
+            align-items: center; justify-content: center; overflow: hidden;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .media-cell:hover {
+            border-color: var(--c-brand);
+            transform: translateY(-3px);
+        }
+        .media-cell img.logo { max-width: 150px; max-height: 150px; object-fit: cover; }
+
+        /* ─────────────────────────────────────
+           TABLET  (769px – 1023px)
+        ───────────────────────────────────── */
+        @media (min-width: 769px) and (max-width: 1023px) {
+            .hero-top {
+            display: flex; flex-direction: column; align-items: flex-start;
+            gap: var(--sp-md); padding: var(--sp-xl) 0 var(--sp-md);
+            }
+            .hero-heading { grid-column: auto; width: 100%; }
+            .hero-sub { grid-column: auto; width: 100%; }
+            .studio-h2    { grid-column: 4 / span 9; }
+            .studio-row   { display: flex; flex-direction: column; }
+            .studio-img   { order: 1; }
+            .studio-stats { order: 2; }
+            .studio-text  { order: 3; }
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+            .proj-card { grid-column: auto !important; grid-row: auto !important; }
+            .media-grid { grid-template-columns: repeat(3, 1fr); }
+            .test-img-lg {  grid-column: 1 / -1; }
+            .test-img-sm { display: none;}
+        }
+
+        /* ─────────────────────────────────────
+           LAPTOP  (1024px – 1439px)
+        ───────────────────────────────────── */
+        @media (min-width: 1024px) and (max-width: 1439px) {
+            .hero-heading { grid-column: 1 / span 9; }
+            .hero-sub     { grid-column: 10 / span 3; }
+            .projects-grid { gap: var(--sp-sm); }
+            .studio-h2      { grid-column: 5 / span 8; }
+            .studio-stats   { grid-column: 1 / span 2; }
+            .studio-text    { grid-column: 5 / span 4; }
+            .studio-img     { grid-column: 10 / span 3; }
+        }
+
+        /* ─────────────────────────────────────
+           MOBILE  (≤ 768px)
+        ───────────────────────────────────── */
+        @media (max-width: 768px) {
+            .hero { padding: var(--sp-xxxl) var(--sp-margin) var(--sp-xl); gap: 0; }
+            .hero-top { display: flex; flex-direction: column; gap: var(--sp-md); padding: var(--sp-xl) 0 var(--sp-md); }
+            .hero-heading { align-items: flex-start; }
+            .hero-sub { align-self: auto; }
+
+            .studio { padding: var(--sp-xl) var(--sp-margin); }
+            .studio-grid { gap: var(--sp-sm) var(--sp-gap); }
+            .studio-eyebrow { grid-column: 1 / -1; grid-row: auto; }
+            .studio-h2      { grid-column: 1 / -1; grid-row: auto; }
+            .studio-row { grid-column: 1 / -1; grid-row: auto; display: flex; flex-direction: column; gap: var(--sp-sm); }
+            .studio-img { order: 1; }
+            .studio-stats { order: 2; }
+            .studio-text { order: 3; }
+            .stat-item { border-bottom-color: var(--c-divider-sec); }
+
+            .projects { padding: var(--sp-xl) var(--sp-margin); gap: var(--sp-md); }
+            .proj-header { flex-direction: column; align-items: flex-start; gap: var(--sp-sm); padding-bottom: var(--sp-sm); border-bottom-color: var(--c-divider-sec); }
+            .proj-header-top { display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; width: 100%; gap: var(--sp-gap); }
+            .proj-header h2 { white-space: normal; }
+            .proj-count { display: inline; font-weight: 600; font-size: var(--fs-h2b); line-height: var(--lh-h2b); letter-spacing: var(--ls-h2b); }
+            .projects-grid { grid-template-columns: 1fr; }
+            .proj-card { grid-column: 1 !important; grid-row: auto !important; }
+            .proj-cta-row { grid-template-columns: 1fr; }
+            .proj-cta-btn { grid-column: 1; }
+
+            .testimonial { padding: var(--sp-xl) var(--sp-margin); }
+            .test-img-lg {  grid-column: 1 / -1; }
+            .test-img-sm { display: none;}
+            .test-header { flex-direction: column; align-items: flex-start; gap: var(--sp-sm); }
+            .test-body { grid-template-columns: 1fr; }
+            .test-quote { grid-column: 1; }
+            .test-meta  { grid-column: 1; margin-top: var(--sp-md); }
+
+            .media { padding: var(--sp-xl) var(--sp-margin); }
+            .media-grid { grid-template-columns: repeat(2, 1fr); gap: var(--sp-sm); }
+        }
+    </style>
+</head>
+<body>
+<div class="page-overlay"></div>
+<div class="page">
+
+    <!-- ══════════════════════════════
+         NAVIGATION (injected)
+    ══════════════════════════════ -->
+    <div data-component="navbar"></div>
+
+    <!-- ══════════════════════════════
+         HERO
+    ══════════════════════════════ -->
+    <section class="hero">
+        <div class="hero-top">
+            <div class="hero-heading">
+                <h1>ออกแบบพื้นที่ที่หายใจ<br>ไปพร้อมกับธรรมชาติ</h1>
+            </div>
+            <div class="hero-sub">
+                <p>ผลงานที่เริ่มต้นจากการฟังธรรมชาติของพื้นที่</p>
+                <a class="btn-text" href="#">
+                    ดูผลงาน
+                    <img src="/assets/icon/ui/arrow/default.svg" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="/assets/images/homepage/1.webp" alt="Hero project">
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════
+         ABOUT
+    ══════════════════════════════ -->
+    <section class="studio studio--home">
+        <div class="studio-grid">
+            <div class="studio-eyebrow eyebrow">
+                <div class="ico-filled"></div>
+                <span>เกี่ยวกับเรา</span>
+            </div>
+            <div class="studio-h2">
+                <h2>สตูดิโอของเราก่อตั้งขึ้นด้วยความเชื่อว่าสถาปัตยกรรมที่ดีคือสถาปัตยกรรมที่อยู่ร่วมกับธรรมชาติได้อย่างกลมกลืนและเป็นหนึ่งเดียวกัน</h2>
+            </div>
+            <div class="studio-row">
+                <div class="studio-stats">
+                    <div class="stat-item eyebrow"><div class="ico-outline"></div><span>มากกว่า 100+ ผลงาน</span></div>
+                    <div class="stat-item eyebrow"><div class="ico-outline"></div><span>18 รางวัล</span></div>
+                    <div class="stat-item eyebrow"><div class="ico-outline"></div><span>13 การตีพิมพ์</span></div>
+                    <div class="stat-item eyebrow"><div class="ico-outline"></div><span>ประสบการณ์กว่า 20 ปี</span></div>
+                </div>
+                <div class="studio-text">
+                    <p>เราเชื่อว่าบ้านที่ดีไม่ได้เกิดจากการออกแบบที่สวยงามเพียงอย่างเดียว แต่เกิดจากความเข้าใจในธรรมชาติของพื้นที่ แสงแดด ทิศลม และวัสดุที่มาจากท้องถิ่น ทุกโปรเจคของเราเริ่มต้นจากการฟังก่อนเสมอ<br><br>สตูดิโอของเราก่อตั้งขึ้นด้วยความเชื่อว่าสถาปัตยกรรมที่ดีคือสถาปัตยกรรมที่อยู่ร่วมกับธรรมชาติได้อย่างกลมกลืน ไม่ใช่การพิชิตธรรมชาติ แต่คือการเป็นส่วนหนึ่งของมัน<br><br>แต่ละโปรเจคถูกออกแบบให้สอดคล้องกับบริบทของพื้นที่และไลฟ์สไตล์ของผู้อยู่อาศัย โดยคำนึงถึงการระบายอากาศตามธรรมชาติ การใช้แสงสว่างจากธรรมชาติ และการเลือกใช้วัสดุที่เป็นมิตรต่อสิ่งแวดล้อม</p>
+                    <a class="btn-outline" href="about.html">
+                        รู้จักเรามากขึ้น
+                        <img src="/assets/icon/ui/arrow/default.svg" alt="">
+                    </a>
+                </div>
+                <div class="studio-img">
+                    <img src="/assets/images/homepage/2.webp" alt="Studio">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════
+         PORTFOLIO
+    ══════════════════════════════ -->
+    <section class="projects">
+        <div class="eyebrow">
+            <div class="ico-filled"></div>
+            <span>ผลงาน</span>
+        </div>
+
+        <div class="proj-header">
+            <div class="proj-header-top">
+                <h2>ออกแบบให้เย็น ให้สบาย ให้ยั่งยืน
+                    <span class="proj-count">(6)</span>
+                </h2>
+                <a class="btn-text-brand proj-cta-brand" href="projects.html" style="display:none">
+                    ดูผลงานทั้งหมด
+                    <img src="/assets/icon/ui/arrow/brand.svg" alt="">
+                </a>
+            </div>
+            <a class="btn-text proj-cta-desktop" href="projects.html">
+                ดูผลงานทั้งหมด
+                <img src="/assets/icon/ui/arrow/default.svg" alt="">
+            </a>
+        </div>
+
+        <div class="projects-grid">
+            <div data-component="project-card"
+                 data-title="บ้านริมน้ำพัฒนาการ"
+                 data-location="กรุงเทพฯ, ประเทศไทย"
+                 data-image="assets/images/project/1.webp"
+                 data-url="project-detail.html"
+                 style="grid-column:1/span 6;grid-row:1;align-self:start"></div>
+            <div data-component="project-card"
+                 data-title="Herban Hotel"
+                 data-location="ภูเก็ต, ประเทศไทย"
+                 data-image="assets/images/project/2.webp"
+                 data-url="project-detail.html"
+                 style="grid-column:7/span 6;grid-row:1;align-self:start"></div>
+            <div data-component="project-card"
+                 data-title="Baan Ramindra"
+                 data-location="กรุงเทพฯ, ประเทศไทย"
+                 data-image="assets/images/project/3.webp"
+                 data-url="project-detail.html"
+                 style="grid-column:1/span 6;grid-row:2;align-self:start"></div>
+            <div data-component="project-card"
+                 class="proj-card--tall"
+                 data-title="ศูนย์ปฏิบัติธรรม ภูเก็ต"
+                 data-location="ภูเก็ต, ประเทศไทย"
+                 data-image="assets/images/project/4.webp"
+                 data-url="project-detail.html"
+                 style="grid-column:7/span 6;grid-row:2;align-self:start"></div>
+            <div data-component="project-card"
+                 data-title="APWP House"
+                 data-location="กรุงเทพฯ, ประเทศไทย"
+                 data-image="assets/images/project/5.webp"
+                 data-url="project-detail.html"
+                 style="grid-column:1/span 6;grid-row:3;align-self:start"></div>
+            <div data-component="project-card"
+                 data-title="Baan Tha-Mai"
+                 data-location="จันทบุรี, ประเทศไทย"
+                 data-image="assets/images/project/6.webp"
+                 data-url="project-detail.html"
+                 style="grid-column:7/span 6;grid-row:3;align-self:start"></div>
+        </div>
+
+        <div class="proj-cta-row">
+            <a class="btn-outline proj-cta-btn" href="projects.html">
+                ดูผลงานทั้งหมด
+                <img src="/assets/icon/ui/arrow/default.svg" alt="">
+            </a>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════
+         TESTIMONIAL
+    ══════════════════════════════ -->
+    <section class="testimonial">
+        <div class="eyebrow">
+            <div class="ico-filled"></div>
+            <span>เสียงจากลูกค้าถึงเรา</span>
+        </div>
+        <div class="test-wrapper">
+            <div class="test-images">
+                <div class="test-img-lg">
+                    <img src="/assets/images/homepage/9.webp" alt="Baan Buddhamonthon large">
+                </div>
+                <div class="test-img-sm">
+                    <img src="/assets/images/homepage/10.webp" alt="Baan Buddhamonthon detail">
+                </div>
+            </div>
+            <div class="test-content">
+                <div class="test-header">
+                    <h3>Baan Buddhamonthon Sai 4</h3>
+                    <a class="btn-text test-link-desktop" href="#">
+                        ดูผลงาน
+                        <img src="/assets/icon/ui/arrow/default.svg" alt="">
+                    </a>
+                    <a class="btn-text-brand test-link-mobile" href="#" style="display:none">
+                        ดูผลงาน
+                        <img src="/assets/icon/ui/arrow/brand.svg" alt="">
+                    </a>
+                </div>
+                <div class="test-body">
+                    <div class="test-quote">
+                        <p>ตอนแรกที่คุยกับสตูดิโอยังไม่ค่อยเข้าใจว่า Eco Architecture คืออะไร แค่รู้ว่าอยากได้บ้านที่ดูเป็นธรรมชาติและไม่ร้อน แต่พอนั่งคุยกันจริงๆ สถาปนิกเขาถามเยอะมาก ทั้งเรื่องวิถีชีวิต ทิศที่ดินหันหน้าไปทางไหน ต้นไม้ที่อยากเก็บไว้ ลมช่วงไหนพัดแรง สิ่งเหล่านี้ถูกนำมาออกแบบทั้งหมดเลย<br><br>พอบ้านเสร็จและย้ายเข้ามาอยู่จริง สิ่งที่รู้สึกได้ชัดเจนที่สุดคือเรื่องอากาศครับ บ้านเย็นโดยที่แทบไม่ต้องเปิดแอร์ในช่วงกลางวัน ลมพัดผ่านได้ทุกห้องเพราะช่องเปิดถูกวางไว้อย่างตั้งใจ แสงธรรมชาติเข้ามาพอดี ไม่จ้าไม่มืด และวัสดุที่ใช้ยิ่งอยู่นานยิ่งรู้สึกว่ามันเข้ากับบ้านมากขึ้นเรื่อยๆ ไม่ได้ดูเก่า แต่ดูมีเรื่องราว<br><br>ถ้าใครกำลังคิดจะสร้างบ้านและอยากได้มากกว่าแค่บ้านที่สวย แนะนำให้ลองคุยกับสตูดิโอนี้ดูครับ เพราะเขาไม่ได้แค่ออกแบบบ้าน แต่ออกแบบวิธีที่คุณจะอยู่กับบ้านนั้นด้วย</p>
+                        <p class="test-author">คุณคำรน สุทธิ, บ้านพักอาศัย ถลาง ภูเก็ต</p>
+                    </div>
+                    <div class="test-meta">
+                        <div class="meta-row"><span class="meta-label">ออกแบบโดย</span><span class="meta-val">คำรน สุทธิ</span></div>
+                        <div class="meta-row"><span class="meta-label">ช่างภาพ</span><span class="meta-val">คำรน สุทธิ</span></div>
+                        <div class="meta-row"><span class="meta-label">สถานที่</span><span class="meta-val">นครปฐม, ประเทศไทย</span></div>
+                        <div class="meta-row"><span class="meta-label">ร่วมกับ</span><span class="meta-val">คำรน สุทธิ</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════
+         MEDIA
+    ══════════════════════════════ -->
+    <section class="media">
+        <div class="eyebrow">
+            <div class="ico-filled"></div>
+            <span>สื่อพูดถึงเรา</span>
+        </div>
+        <div class="media-grid">
+            <a href="https://www.koktailmagazine.com/the-future-list/khamron-kaew-sutthi/" class="media-cell media-c1" target="_blank">
+                <img class="logo" src="/assets/icon/media/image 1.png" alt="Media 1">
+            </a>
+            <a href="https://dsignsomething.com/2015/01/16/%E0%B8%A3%E0%B8%B9%E0%B9%89%E0%B8%88%E0%B8%B1%E0%B8%81%E0%B8%AA%E0%B8%96%E0%B8%B2%E0%B8%9B%E0%B8%99%E0%B8%B4%E0%B8%81%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%AA%E0%B8%96%E0%B8%B2%E0%B8%9B%E0%B8%B1%E0%B8%95/" class="media-cell media-c2" target="_blank">
+                <img class="logo" src="/assets/icon/media/image 5.png" alt="Media 2">
+            </a>
+            <a href="https://www.facebook.com/share/v/1A8azixT7g/" class="media-cell media-c3" target="_blank">
+                <img class="logo" src="/assets/icon/media/image 6.png" alt="Media 3">
+            </a>
+            <a href="https://youtu.be/70n4u6_P88k?si=rzdMmym672RUEBRa" class="media-cell media-c4" target="_blank">
+                <img class="logo" src="/assets/icon/media/image 7.png" alt="Media 4">
+            </a>
+            <a href="https://www.baanlaesuan.com/tag/eco-architect/" class="media-cell media-c5" target="_blank">
+                <img class="logo" src="/assets/icon/media/Vector-1.svg" alt="Media 5">
+            </a>
+            <a href="https://onceinlife.co/eco-architect/" class="media-cell media-c6" target="_blank">
+                <img class="logo" src="/assets/icon/media/Vector.svg" alt="Media 6">
+            </a>
+        </div>
+    </section>
+
+</div>
+
+<!-- ══════════════════════════════
+     FOOTER (injected)
+══════════════════════════════ -->
+<div data-component="footer"></div>
+
+<script src="js/components.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+<script src="js/animations.js" defer></script>
+</body>
+</html>

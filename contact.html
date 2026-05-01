@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ติดต่อเรา — Eco Architect Co.,Ltd.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+Thai+Looped:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* ─────────────────────────────────────
+           PAGE BANNER
+        ───────────────────────────────────── */
+        .page-banner {
+            padding: 8rem var(--sp-margin) var(--sp-xl);
+            display: flex; flex-direction: column;
+            align-items: center; gap: var(--sp-md);
+        }
+        .page-banner h1 {
+            font-weight: 600; font-size: var(--fs-h1);
+            line-height: var(--lh-h1); letter-spacing: var(--ls-h1);
+            text-align: center;
+        }
+        .page-banner-sub {
+            font-weight: 700; font-size: var(--fs-label);
+            line-height: var(--lh-label); letter-spacing: var(--ls-label);
+            text-align: center;
+        }
+
+        /* ─────────────────────────────────────
+           CONTACT SECTION
+        ───────────────────────────────────── */
+        .contact {
+            padding: 0 var(--sp-margin) var(--sp-xl);
+        }
+        .contact-grid {
+            display: grid; grid-template-columns: repeat(12, 1fr);
+            gap: var(--sp-gap);
+        }
+        .contact-info {
+            grid-column: 1 / span 4;
+            display: flex; flex-direction: column; gap: var(--sp-md);
+            padding-top: var(--sp-sm);
+        }
+        .contact-info-item {
+            display: flex; flex-direction: column; gap: var(--sp-xxs);
+        }
+        .contact-info-label {
+            font-size: var(--fs-label); font-weight: 700;
+            letter-spacing: var(--ls-label); text-transform: uppercase;
+            color: var(--c-muted);
+        }
+        .contact-info-val {
+            font-family: var(--font-loop); font-size: var(--fs-body);
+            line-height: var(--lh-body);
+        }
+        .contact-form-wrap {
+            grid-column: 6 / span 7;
+        }
+        .contact-form-wrap form {
+            display: flex; flex-direction: column; gap: var(--sp-md);
+        }
+        .form-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-gap);
+        }
+        .form-group {
+            display: flex; flex-direction: column; gap: var(--sp-xxs);
+        }
+        .form-group label {
+            font-size: var(--fs-label); font-weight: 700;
+            letter-spacing: var(--ls-label); text-transform: uppercase;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid var(--c-border);
+            background: transparent;
+            padding: var(--sp-sm) 0;
+            font-size: var(--fs-body); font-family: var(--font-loop);
+            color: var(--c-text);
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+            border-radius: 0;
+        }
+        .form-group select { cursor: pointer; }
+        .form-group textarea { resize: vertical; min-height: 8rem; }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: var(--c-muted); }
+        .form-optional {
+            font-weight: 400; text-transform: none; letter-spacing: 0;
+            color: var(--c-muted);
+        }
+        .contact-success {
+            display: none;
+            flex-direction: column; gap: var(--sp-sm);
+            padding: var(--sp-xl) 0;
+        }
+        .contact-success h2 {
+            font-size: var(--fs-h2a); line-height: var(--lh-h2a);
+            letter-spacing: var(--ls-h2a); font-weight: 600;
+        }
+        .contact-error {
+            display: none;
+            color: #c0392b;
+            font-family: var(--font-loop); font-size: var(--fs-body);
+            margin-bottom: var(--sp-sm);
+        }
+
+        /* ─────────────────────────────────────
+           TABLET  (769px – 1023px)
+        ───────────────────────────────────── */
+        @media (min-width: 769px) and (max-width: 1023px) {
+            .page-banner { padding: 6rem var(--sp-margin) var(--sp-md); }
+            .contact-info { grid-column: 1 / span 5; }
+            .contact-form-wrap { grid-column: 6 / span 7; }
+        }
+
+        /* ─────────────────────────────────────
+           LAPTOP  (1024px – 1439px)
+        ───────────────────────────────────── */
+        @media (min-width: 1024px) and (max-width: 1439px) {
+            .contact-info { grid-column: 1 / span 4; }
+            .contact-form-wrap { grid-column: 6 / span 7; }
+        }
+
+        /* ─────────────────────────────────────
+           MOBILE  (≤ 768px)
+        ───────────────────────────────────── */
+        @media (max-width: 768px) {
+            .page-banner {
+                padding: var(--sp-xxxl) var(--sp-margin) var(--sp-xxxl);
+                align-items: flex-start; gap: var(--sp-sm);
+                margin-block: var(--sp-md);
+            }
+            .page-banner h1 {
+                font-size: 2.5rem; line-height: 2.75rem;
+                letter-spacing: -0.0625rem; text-align: left;
+            }
+            .page-banner-sub { display: none; }
+            .contact-info,
+            .contact-form-wrap { grid-column: 1 / -1; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-overlay"></div>
+<div class="page">
+
+    <!-- ══════════════════════════════
+         NAVIGATION (injected)
+    ══════════════════════════════ -->
+    <div data-component="navbar"></div>
+
+    <!-- ══════════════════════════════
+         PAGE BANNER
+    ══════════════════════════════ -->
+    <section class="page-banner">
+        <h1>ติดต่อเรา</h1>
+        <p class="page-banner-sub">Get In Touch</p>
+    </section>
+
+    <!-- ══════════════════════════════
+         CONTACT SECTION
+    ══════════════════════════════ -->
+    <section class="contact">
+        <div class="contact-grid">
+
+            <!-- Contact info panel -->
+            <div class="contact-info">
+                <div class="eyebrow">
+                    <div class="ico-outline"></div>
+                    <span>ติดต่อ</span>
+                </div>
+                <div class="contact-info-item">
+                    <span class="contact-info-label">ที่อยู่</span>
+                    <span class="contact-info-val">6 ซ.ประยูร 2/2 ถ.เยาวราช<br>ตลาดใหญ่ ภูเก็ต 83000</span>
+                </div>
+                <div class="contact-info-item">
+                    <span class="contact-info-label">อีเมล</span>
+                    <span class="contact-info-val">eco.arch.phuket@gmail.com</span>
+                </div>
+                <div class="contact-info-item">
+                    <span class="contact-info-label">โทรศัพท์</span>
+                    <span class="contact-info-val">+6681 270 3450</span>
+                </div>
+            </div>
+
+            <!-- Contact form -->
+            <div class="contact-form-wrap">
+                <div class="contact-success" id="contact-success">
+                    <h2>ขอบคุณที่ติดต่อเรา</h2>
+                    <p>เราได้รับข้อความของคุณแล้ว และจะติดต่อกลับโดยเร็วที่สุด</p>
+                </div>
+                <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">ชื่อ-สกุล</label>
+                            <input type="text" id="name" name="name" placeholder="ชื่อและนามสกุล" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">อีเมล</label>
+                            <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">เบอร์โทร <span class="form-optional">(ไม่บังคับ)</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="+66 xx xxx xxxx">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">ประเภทบริการ</label>
+                            <select id="service" name="service" required>
+                                <option value="" disabled selected>เลือกบริการ</option>
+                                <option value="residential">ออกแบบที่พักอาศัย</option>
+                                <option value="commercial">ออกแบบเชิงพาณิชย์</option>
+                                <option value="interior">ออกแบบตกแต่งภายใน</option>
+                                <option value="landscape">ออกแบบภูมิทัศน์</option>
+                                <option value="consultation">ให้คำปรึกษา</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">ข้อความ</label>
+                        <textarea id="message" name="message" placeholder="บอกเราเกี่ยวกับโปรเจกต์ของคุณ..." required></textarea>
+                    </div>
+                    <div>
+                        <p class="contact-error" id="contact-error">เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง</p>
+                        <button type="submit" class="btn-inv">
+                            ส่งข้อความ
+                            <img src="/assets/icon/ui/arrow/inverse.svg" alt="">
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+<!-- ══════════════════════════════
+     FOOTER (injected)
+══════════════════════════════ -->
+<div data-component="footer"></div>
+
+<script>
+    (function () {
+        var form = document.getElementById('contact-form');
+        var success = document.getElementById('contact-success');
+        var error = document.getElementById('contact-error');
+        if (!form) return;
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            error.style.display = 'none';
+            var data = new FormData(form);
+            fetch(form.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' },
+            }).then(function (res) {
+                if (res.ok) {
+                    form.style.display = 'none';
+                    success.style.display = 'flex';
+                } else {
+                    error.style.display = 'block';
+                }
+            }).catch(function () {
+                error.style.display = 'block';
+            });
+        });
+    })();
+</script>
+<script src="js/components.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+<script src="js/animations.js" defer></script>
+</body>
+</html>

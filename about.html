@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เกี่ยวกับเรา - Eco Architect Co.,Ltd.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+Thai+Looped:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* ─────────────────────────────────────
+           PAGE BANNER
+        ───────────────────────────────────── */
+        .page-banner {
+            padding: 8rem var(--sp-margin) var(--sp-xl);
+            display: flex; flex-direction: column;
+            align-items: center; gap: var(--sp-md);
+        }
+        .page-banner h1 {
+            font-weight: 600; font-size: var(--fs-h1);
+            line-height: var(--lh-h1); letter-spacing: var(--ls-h1);
+            text-align: center;
+        }
+        .page-banner-sub {
+            font-weight: 700; font-size: var(--fs-label);
+            line-height: var(--lh-label); letter-spacing: var(--ls-label);
+            text-align: center;
+        }
+        .page-banner-sub-mobile { display: none; }
+
+        /* ─────────────────────────────────────
+           STUDIO SECTION
+        ───────────────────────────────────── */
+        .studio {
+            padding: 0 var(--sp-margin) var(--sp-xl);
+            display: flex; flex-direction: column; gap: var(--sp-md);
+            overflow: hidden;
+        }
+        .studio-intro {
+            display: grid; grid-template-columns: repeat(12, 1fr);
+            gap: var(--sp-gap); row-gap: 0.625rem;
+        }
+        .studio-intro .eyebrow { grid-column: 1 / -1; justify-self: left; }
+        .studio-intro h2 {
+            grid-column: 3 / span 9;
+            font-weight: 600; font-size: var(--fs-h2a);
+            line-height: var(--lh-h2a); letter-spacing: var(--ls-h2a);
+            text-align: center;
+        }
+        .studio-main-img { width: 100%; height: 744px; overflow: hidden; }
+        .studio-main-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .studio-body {
+            display: grid; grid-template-columns: repeat(12, 1fr);
+            gap: var(--sp-gap); align-items: start;
+        }
+        .studio-stats { grid-column: 1 / span 2; display: flex; flex-direction: column; align-self: stretch; }
+        .stat-item {
+            border-bottom: 1px solid var(--c-divider-sec);
+            padding: var(--sp-xs) 0;
+            display: flex; align-items: center; gap: var(--sp-xs);
+        }
+        .stat-item span {
+            font-weight: 700; font-size: var(--fs-label); line-height: var(--lh-label);
+            letter-spacing: var(--ls-label); text-transform: uppercase; white-space: nowrap;
+        }
+        .studio-text {
+            grid-column: 6 / span 3; display: flex; flex-direction: column;
+            gap: var(--sp-md); align-self: stretch;
+        }
+        .studio-text p { font-family: var(--font-loop); font-size: var(--fs-body); line-height: var(--lh-body); }
+        .studio-portrait { grid-column: 10 / span 3; height: 440px; overflow: hidden; }
+        .studio-portrait img { width: 100%; height: 100%; object-fit: cover; }
+        .studio-img-mobile { display: none; }
+
+        /* ─────────────────────────────────────
+           AWARDS
+        ───────────────────────────────────── */
+        .awards {
+            padding: var(--sp-xl) var(--sp-margin);
+            display: flex; flex-direction: column; gap: var(--sp-md);
+        }
+        .awards-table { display: flex; flex-direction: column; }
+        .award-row {
+            display: grid; grid-template-columns: repeat(12, 1fr);
+            gap: var(--sp-gap); border-bottom: 1px solid var(--c-divider-sec);
+            align-items: center;
+        }
+        .aw-year { grid-column: 1; padding: 0.75rem 0; font-weight: 700; font-size: var(--fs-label); line-height: 1.25rem; }
+        .aw-year-empty { grid-column: 1; height: 2.25rem; }
+        .aw-name { grid-column: 2 / span 3; padding: 0.75rem 0; font-weight: 700; font-size: var(--fs-label); line-height: 1.25rem; display: flex; align-items: center; overflow: hidden; text-overflow: ellipsis; }
+        .aw-cat  { grid-column: 5 / span 3; padding: 0.75rem 0; font-family: var(--font-loop); font-size: var(--fs-body); line-height: var(--lh-body); display: flex; align-items: center; overflow: hidden; text-overflow: ellipsis; }
+        .aw-project { grid-column: 8 / span 3; padding: 0.75rem 0; display: flex; align-items: center; gap: var(--sp-xxs); overflow: hidden; }
+        .aw-project a {
+            font-weight: 700; font-size: var(--fs-label); line-height: 1.25rem;
+            color: var(--c-brand); text-decoration: none;
+            letter-spacing: var(--ls-label); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .aw-project a:hover { text-decoration: underline; }
+        .aw-project img { width: 16px; height: 16px; flex-shrink: 0; }
+        .aw-loc { grid-column: 11 / span 2; padding: 0.75rem 0; font-family: var(--font-loop); font-size: var(--fs-body); line-height: var(--lh-body); color: var(--c-muted); display: flex; align-items: center; overflow: hidden; text-overflow: ellipsis; }
+        .award-row.header .aw-year,
+        .award-row.header .aw-name,
+        .award-row.header .aw-cat,
+        .award-row.header .aw-project,
+        .award-row.header .aw-loc { color: var(--c-muted); font-family: var(--font); font-weight: 700; font-size: var(--fs-label); line-height: 1.25rem; }
+
+        /* ─────────────────────────────────────
+           TEAM
+        ───────────────────────────────────── */
+        .team {
+            padding: var(--sp-xl) var(--sp-margin);
+            display: flex; flex-direction: column; gap: var(--sp-md);
+        }
+        .member-row { display: flex; gap: var(--sp-gap); }
+        .member-card {
+            display: flex; flex-direction: column; gap: var(--sp-xs);
+            padding-bottom: var(--sp-sm); width: 221px; flex-shrink: 0;
+        }
+        .member-photo { width: 221px; height: 262px; overflow: hidden; }
+        .member-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .member-name  { font-weight: 700; font-size: var(--fs-label); line-height: 1.25rem; }
+        .member-title { font-weight: 500; font-size: 0.75rem; color: var(--c-muted); }
+
+        /* ─────────────────────────────────────
+           TABLET  (769px – 1023px)
+        ───────────────────────────────────── */
+        @media (min-width: 769px) and (max-width: 1023px) {
+            .page-banner { padding: 6rem var(--sp-margin) var(--sp-md); }
+            .studio-main-img { height: 480px; }
+            .studio-stats { grid-column: 1 / span 3; }
+            .studio-text  { grid-column: 5 / span 4; }
+            .studio-portrait { grid-column: 9 / span 4; height: 360px; }
+            .member-row { flex-wrap: wrap; }
+            .member-card { width: calc((100% - 2 * var(--sp-gap)) / 3); flex-shrink: 0; }
+            .member-photo { width: 100%; }
+        }
+
+        /* ─────────────────────────────────────
+           LAPTOP  (1024px – 1439px)
+        ───────────────────────────────────── */
+        @media (min-width: 1024px) and (max-width: 1439px) {
+            .studio-main-img { height: 560px; }
+            .studio-portrait { grid-column: 10 / span 3; height: 360px; }
+            .studio-text { grid-column: 5 / span 4; }
+            .member-row { flex-wrap: wrap; }
+            .member-card { width: calc((100% - 2 * var(--sp-gap)) / 3); }
+            .member-photo { width: 100%; }
+        }
+
+        /* ─────────────────────────────────────
+           MOBILE  (≤ 768px)
+        ───────────────────────────────────── */
+        @media (max-width: 768px) {
+            .page-banner { padding: var(--sp-xxxl) var(--sp-margin) var(--sp-sm); margin-block: var(--sp-md);align-items: flex-start; gap: var(--sp-sm); }
+            .page-banner h1 { font-size: 2.5rem; line-height: 2.75rem; letter-spacing: -0.0625rem; text-align: left; }
+            .page-banner-sub { display: none; }
+
+            .studio { padding: 0 var(--sp-margin) var(--sp-xl); }
+            .studio-intro { grid-template-columns: 1fr; }
+            .studio-intro .eyebrow { justify-self: start; }
+            .studio-intro h2 { grid-column: 1; text-align: left; }
+            .studio-main-img { height: 440px; }
+            .studio-body { grid-template-columns: 1fr; gap: var(--sp-sm); }
+            .studio-stats  { grid-column: 1; }
+            .studio-text   { grid-column: 1; gap: var(--sp-sm); }
+            .studio-portrait { grid-column: 1;}
+
+            .awards { padding: var(--sp-xl) var(--sp-margin); }
+            .award-row {
+                grid-template-columns: 3rem 1fr;
+                grid-template-rows: auto auto auto auto;
+                gap: var(--sp-xxs) 0; padding: var(--sp-sm) 0; align-items: start;
+            }
+            .aw-year       { grid-column: 1; grid-row: 1 / -1; align-self: start; padding: 0.25rem 0; }
+            .aw-year-empty { grid-column: 1; grid-row: 1 / -1; height: auto; align-self: start; }
+            .aw-name    { grid-column: 2; grid-row: 1; padding: 0.25rem 0; }
+            .aw-cat     { grid-column: 2; grid-row: 2; padding: 0.25rem 0; font-family: var(--font-loop); }
+            .aw-project { grid-column: 2; grid-row: 3; padding: 0.25rem 0; margin-top: var(--sp-sm); }
+            .aw-loc     { grid-column: 2; grid-row: 4; padding: 0.25rem 0; font-size: 0.75rem; }
+            .award-row.header .aw-cat,
+            .award-row.header .aw-project,
+            .award-row.header .aw-loc { display: none; }
+
+            .team { padding: var(--sp-xl) var(--sp-margin); }
+            .member-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-gap); }
+            .member-card { width: 100%; }
+            .member-photo { width: 100%; height: auto; aspect-ratio: 3/4; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-overlay"></div>
+<div class="page">
+
+    <!-- ══════════════════════════════
+         NAVIGATION (injected)
+    ══════════════════════════════ -->
+    <div data-component="navbar"></div>
+
+    <!-- ══════════════════════════════
+         PAGE BANNER
+    ══════════════════════════════ -->
+    <section class="page-banner">
+        <h1>เกี่ยวกับเรา</h1>
+        <p class="page-banner-sub">Architecture &amp; Design Redefined</p>
+    </section>
+
+    <!-- ══════════════════════════════
+         STUDIO
+    ══════════════════════════════ -->
+    <section class="studio studio--page">
+        <div class="studio-intro">
+            <div class="eyebrow">
+                <div class="ico-filled"></div>
+                <span>about us</span>
+            </div>
+            <h2>สตูดิโอของเราก่อตั้งขึ้นด้วยความเชื่อว่า<br>สถาปัตยกรรมที่ดีคือสถาปัตยกรรมที่อยู่ร่วม<br>กับธรรมชาติได้อย่างกลมกลืน และเป็นหนึ่งเดียวกัน</h2>
+        </div>
+        <div class="studio-main-img">
+            <img src="/assets/images/about-us/1.webp" alt="Studio architecture">
+        </div>
+        <div class="studio-body">
+            <div class="studio-stats">
+                <div class="stat-item eyebrow"><div class="ico-outline"></div><span>มากกว่า 100+ ผลงาน</span></div>
+                <div class="stat-item eyebrow"><div class="ico-outline"></div><span>18 รางวัล</span></div>
+                <div class="stat-item eyebrow"><div class="ico-outline"></div><span>13 การตีพิมพ์</span></div>
+                <div class="stat-item eyebrow"><div class="ico-outline"></div><span>ประสบการณ์กว่า 20 ปี</span></div>
+            </div>
+            <div class="studio-text">
+                <p>เราเป็นสตูดิโอสถาปนิกจากภูเก็ต ที่เชี่ยวชาญด้านการออกแบบที่พักอาศัยแนว Eco และ Sustainable Architecture ทุกโปรเจคของเราเริ่มต้นเหมือนกันคือ เราฟังก่อน ฟังเจ้าของบ้าน ฟังพื้นที่ ฟังทิศทางของลมและแสงแดด แล้วค่อยออกแบบ</p>
+                <p>เพราะเราเชื่อว่าธรรมชาติมีคำตอบอยู่แล้ว หน้าที่ของเราคือทำให้บ้านสนทนากับสิ่งแวดล้อมรอบข้างได้อย่างกลมกลืน เลือกวัสดุที่มาจากท้องถิ่น ออกแบบช่องเปิดให้ลมพัดผ่านได้เองโดยไม่ต้องพึ่งเครื่องปรับอากาศตลอดวัน และรักษาต้นไม้เดิมของพื้นที่ไว้ให้ได้มากที่สุด</p>
+                <p>สิ่งเหล่านี้ไม่ใช่แค่การออกแบบ แต่คือการดูแลให้บ้านและธรรมชาติอยู่ร่วมกันได้ในระยะยาว</p>
+            </div>
+            <div class="studio-portrait">
+                <img src="/assets/images/about-us/2.webp" alt="Studio portrait">
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════
+         AWARDS
+    ══════════════════════════════ -->
+    <section class="awards" id="awards">
+        <div class="eyebrow">
+            <div class="ico-filled"></div>
+            <span>รางวัล</span>
+        </div>
+        <div class="awards-table">
+
+            <div class="award-row header">
+                <div class="aw-year">ปี</div>
+                <div class="aw-name">รางวัล</div>
+                <div class="aw-cat">สาขา</div>
+                <div class="aw-project">โปรเจค</div>
+                <div class="aw-loc">สถานที่</div>
+            </div>
+
+            <div class="award-row">
+                <div class="aw-year">2026</div>
+                <div class="aw-name">Asia Pacific Property Awards 2025–2026</div>
+                <div class="aw-cat">Residential Renovation/Redevelopment</div>
+                <div class="aw-project">
+                    <a href="#">Baan Sangdamrong</a>
+                    <img src="/assets/icon/ui/arrow/default.svg" alt="">
+                </div>
+                <div class="aw-loc">ภูเก็ต, ประเทศไทย</div>
+            </div>
+
+            <div class="award-row">
+                <div class="aw-year">2025</div>
+                <div class="aw-name">Asia Pacific Property Awards 2024–2025</div>
+                <div class="aw-cat">Office Architecture</div>
+                <div class="aw-project">
+                    <a href="#">Botanica Luxury Phuket Head Office</a>
+                    <img src="/assets/icon/ui/arrow/default.svg" alt="">
+                </div>
+                <div class="aw-loc">ภูเก็ต, ประเทศไทย</div>
+            </div>
+
+            <div class="award-row">
+                <div class="aw-year">2024</div>
+                <div class="aw-name">Asia Pacific Property Awards 2023–2024</div>
+                <div class="aw-cat">Five Stars Best Hotel Architecture</div>
+                <div class="aw-project">
+                    <a href="#">The Motifs Eco Hotel</a>
+                    <img src="/assets/icon/ui/arrow/default.svg" alt="">
+                </div>
+                <div class="aw-loc">ชลบุรี, ประเทศไทย</div>
+            </div>
+
+            <div class="award-row">
+                <div class="aw-year-empty"></div>
+                <div class="aw-name">Asia Pacific Property Awards</div>
+                <div class="aw-cat">Five Stars Best Architecture Single Residence</div>
+                <div class="aw-project">
+                    <a href="#">Baan Loylom</a>
+                    <img src="/assets/icon/ui/arrow/default.svg" alt="">
+                </div>
+                <div class="aw-loc">ภูเก็ต, ประเทศไทย</div>
+            </div>
+
+            <div class="award-row">
+                <div class="aw-year-empty"></div>
+                <div class="aw-name">Asia Pacific Property Awards</div>
+                <div class="aw-cat">Award Winner Leisure Architecture</div>
+                <div class="aw-project">
+                    <a href="#">Kopi Kuapa</a>
+                    <img src="/assets/icon/ui/arrow/default.svg" alt="">
+                </div>
+                <div class="aw-loc">พังงา, ประเทศไทย</div>
+            </div>
+
+            <div class="award-row">
+                <div class="aw-year">2023</div>
+                <div class="aw-name">Design Excellence Award - DEmark 2023</div>
+                <div class="aw-cat">ประเภทร้านกาแฟ</div>
+                <div class="aw-project">
+                    <a href="#">Kopi Kuapa</a>
+                    <img src="/assets/icon/ui/arrow/default.svg" alt="">
+                </div>
+                <div class="aw-loc">พังงา, ประเทศไทย</div>
+            </div>
+
+            <div class="award-row">
+                <div class="aw-year-empty"></div>
+                <div class="aw-name">Asia Pacific Property Awards 2022–2023</div>
+                <div class="aw-cat">Best Architecture Single Residence</div>
+                <div class="aw-project">
+                    <a href="#">Ansaya Phuket</a>
+                    <img src="/assets/icon/ui/arrow/default.svg" alt="">
+                </div>
+                <div class="aw-loc">ภูเก็ต, ประเทศไทย</div>
+            </div>
+
+            <div class="award-row">
+                <div class="aw-year">2022</div>
+                <div class="aw-name">Muse Design Awards 2022</div>
+                <div class="aw-cat">Gold Winner</div>
+                <div class="aw-project">
+                    <a href="#">Ansaya Phuket</a>
+                    <img src="/assets/icon/ui/arrow/default.svg" alt="">
+                </div>
+                <div class="aw-loc">ภูเก็ต, ประเทศไทย</div>
+            </div>
+
+            <div class="award-row">
+                <div class="aw-year-empty"></div>
+                <div class="aw-name">Architecture Masterprize 2022</div>
+                <div class="aw-cat">Honorable Mention</div>
+                <div class="aw-project">
+                    <a href="#">Ansaya Phuket</a>
+                    <img src="/assets/icon/ui/arrow/default.svg" alt="">
+                </div>
+                <div class="aw-loc">ภูเก็ต, ประเทศไทย</div>
+            </div>
+
+            <div class="award-row">
+                <div class="aw-year-empty"></div>
+                <div class="aw-name">ASA Award 2022</div>
+                <div class="aw-cat">National Best Architecture Silver Award</div>
+                <div class="aw-project">
+                    <a href="#">The Motifs Eco Hotel</a>
+                    <img src="/assets/icon/ui/arrow/default.svg" alt="">
+                </div>
+                <div class="aw-loc">จันทบุรี, ประเทศไทย</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════
+         TEAM
+    ══════════════════════════════ -->
+    <section class="team" id="team">
+        <div class="eyebrow">
+            <div class="ico-filled"></div>
+            <span>Meet our team</span>
+        </div>
+
+        <div class="member-row">
+            <div class="member-card">
+                <div class="member-photo"><img src="/assets/images/about-us/3.webp" alt="Kamron sutthi"></div>
+                <p class="member-name">Kamron sutthi (Kaew)</p>
+                <p class="member-title">Managing Director</p>
+            </div>
+            <div class="member-card">
+                <div class="member-photo"><img src="/assets/images/about-us/4.webp" alt="Kamron sutthi"></div>
+                <p class="member-name">Kamron sutthi (Kaew)</p>
+                <p class="member-title">Managing Director</p>
+            </div>
+            <div class="member-card">
+                <div class="member-photo"><img src="/assets/images/about-us/5.webp" alt="Kamron sutthi"></div>
+                <p class="member-name">Kamron sutthi (Kaew)</p>
+                <p class="member-title">Managing Director</p>
+            </div>
+            <div class="member-card">
+                <div class="member-photo"><img src="/assets/images/about-us/6.webp" alt="Kamron sutthi"></div>
+                <p class="member-name">Kamron sutthi (Kaew)</p>
+                <p class="member-title">Managing Director</p>
+            </div>
+            <div class="member-card">
+                <div class="member-photo"><img src="/assets/images/about-us/7.webp" alt="Kamron sutthi"></div>
+                <p class="member-name">Kamron sutthi (Kaew)</p>
+                <p class="member-title">Managing Director</p>
+            </div>
+            <div class="member-card">
+                <div class="member-photo"><img src="/assets/images/about-us/8.webp" alt="Kamron sutthi"></div>
+                <p class="member-name">Kamron sutthi (Kaew)</p>
+                <p class="member-title">Managing Director</p>
+            </div>
+        </div>
+
+        <div class="member-row">
+            <div class="member-card">
+                <div class="member-photo"><img src="/assets/images/about-us/9.webp" alt="Kamron sutthi"></div>
+                <p class="member-name">Kamron sutthi (Kaew)</p>
+                <p class="member-title">Managing Director</p>
+            </div>
+            <div class="member-card">
+                <div class="member-photo"><img src="/assets/images/about-us/10.webp" alt="Kamron sutthi"></div>
+                <p class="member-name">Kamron sutthi (Kaew)</p>
+                <p class="member-title">Managing Director</p>
+            </div>
+            <div class="member-card">
+                <div class="member-photo"><img src="/assets/images/about-us/11.webp" alt="Kamron sutthi"></div>
+                <p class="member-name">Kamron sutthi (Kaew)</p>
+                <p class="member-title">Managing Director</p>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- ══════════════════════════════
+     FOOTER (injected)
+══════════════════════════════ -->
+<div data-component="footer"></div>
+
+<script src="js/components.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+<script src="js/animations.js" defer></script>
+</body>
+</html>

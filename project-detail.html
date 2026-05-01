@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herban Hotel — Eco Architect Co.,Ltd.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+Thai+Looped:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* ─────────────────────────────────────
+           PROJECT HERO TOP
+        ───────────────────────────────────── */
+        .project-top {
+            padding-block: var(--sp-gap); margin-inline: var(--sp-margin);
+            border-bottom: 1px solid var(--c-divider-sec);
+            display: flex; flex-direction: column; gap: var(--sp-md);
+        }
+        .project-hero-img { width: 100%; aspect-ratio: 16/9; overflow: hidden; }
+        .project-hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .project-top h1 {
+            font-weight: 600; font-size: var(--fs-h1);
+            line-height: var(--lh-h1); letter-spacing: var(--ls-h1);
+        }
+
+        /* ─────────────────────────────────────
+           PROJECT META
+        ───────────────────────────────────── */
+        .project-meta { padding: var(--sp-xl) var(--sp-margin); }
+        .project-meta-grid {
+            display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--sp-gap);
+        }
+        .proj-desc { grid-column: 1 / span 5; align-self: start; }
+        .proj-desc p { font-family: var(--font-loop); font-size: var(--fs-body); line-height: var(--lh-body); }
+        .proj-specs { grid-column: 7 / span 6; display: flex; flex-direction: column; }
+        .spec-row {
+            display: flex; align-items: baseline;
+            justify-content: space-between; gap: var(--sp-sm);
+            padding: var(--sp-xs) 0; border-bottom: 1px solid var(--c-divider-sec);
+        }
+        .spec-label { font-weight: 700; font-size: var(--fs-label); line-height: var(--lh-label); color: var(--c-muted); flex-shrink: 0; }
+        .spec-val   { font-family: var(--font-loop); font-size: var(--fs-body); line-height: var(--lh-body); text-align: right; }
+
+        /* ─────────────────────────────────────
+           PROJECT GALLERY
+        ───────────────────────────────────── */
+        .project-gallery { padding: var(--sp-xl) var(--sp-margin); }
+        .gallery { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--sp-gap); }
+        .gallery__item { overflow: hidden; }
+        .gallery__item:nth-child(3n+1) { grid-column: span 12; }
+        .gallery__item:nth-child(3n+2),
+        .gallery__item:nth-child(3n)   { grid-column: span 6; }
+        .gallery__item[data-orientation="landscape"] { aspect-ratio: 16/9; }
+        .gallery__item[data-orientation="portrait"]  { aspect-ratio: 3/4; }
+        .gallery__item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* ─────────────────────────────────────
+           BACK LINK
+        ───────────────────────────────────── */
+        .back-link { padding: calc(var(--nav-h) + var(--sp-sm)) var(--sp-margin) var(--sp-xs); }
+        .back-link a {
+            display: inline-flex; align-items: center; gap: var(--sp-xs);
+            font-weight: 700; font-size: var(--fs-label); line-height: var(--lh-label);
+            letter-spacing: var(--ls-label); text-transform: uppercase;
+            color: var(--c-text); text-decoration: none;
+        }
+        .back-link a:hover { opacity: 0.6; }
+        .back-arrow { font-size: 1.25rem; line-height: 1; }
+
+        /* ─────────────────────────────────────
+           TABLET  (769px – 1023px)
+        ───────────────────────────────────── */
+        @media (min-width: 769px) and (max-width: 1023px) {
+            .proj-desc { grid-column: 1 / span 6; }
+            .proj-specs { grid-column: 7 / span 6; }
+        }
+
+        /* ─────────────────────────────────────
+           LAPTOP  (1024px – 1439px)
+        ───────────────────────────────────── */
+        @media (min-width: 1024px) and (max-width: 1439px) {
+        }
+
+        /* ─────────────────────────────────────
+           MOBILE  (≤ 768px)
+        ───────────────────────────────────── */
+        @media (max-width: 768px) {
+            .project-top { gap: var(--sp-sm); }
+            .project-top h1 { font-size: 2.5rem; line-height: 2.75rem; letter-spacing: -0.0625rem; }
+
+            .project-meta { padding: var(--sp-xl) var(--sp-margin); }
+            .project-meta-grid { grid-template-columns: 1fr; gap: var(--sp-md); }
+            .proj-desc { grid-column: 1; }
+            .proj-specs { grid-column: 1; }
+
+            .gallery__item:nth-child(3n+2),
+            .gallery__item:nth-child(3n)   { grid-column: span 12; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-overlay"></div>
+<div class="page">
+
+    <!-- ══════════════════════════════
+         NAVIGATION (injected)
+    ══════════════════════════════ -->
+    <div data-component="navbar"></div>
+
+    <!-- ══════════════════════════════
+         BACK LINK
+    ══════════════════════════════ -->
+    <div class="back-link">
+        <a href="projects.html">
+            <span class="back-arrow">←</span>
+            ผลงานทั้งหมด
+        </a>
+    </div>
+
+    <!-- ══════════════════════════════
+         PROJECT HERO
+    ══════════════════════════════ -->
+    <section class="project-top">
+        <div class="project-hero-img">
+            <img src="/assets/images/project-details/1.webp" alt="Herban Hotel">
+        </div>
+        <h1>Herban Hotel</h1>
+    </section>
+
+    <!-- ══════════════════════════════
+         PROJECT METADATA
+    ══════════════════════════════ -->
+    <section class="project-meta">
+        <div class="project-meta-grid">
+
+            <div class="proj-desc">
+                <p>เมื่อแสงแดดเปลี่ยนมุม ดินบนผนังก็เล่าเรื่องใหม่อีกครั้ง… Herban Hotel ที่ซึ่งวัสดุ(ดิน)ในท้องถิ่นกลายเป็นภาษาของสถาปัตยกรรม ทุกมุมของอาคารถูกออกแบบให้เชื่อมต่อกับธรรมชาติรอบข้าง ไม่ว่าจะเป็นแสง ลม หรือพรรณพฤกษา</p>
+            </div>
+
+            <div class="proj-specs">
+                <div class="spec-row">
+                    <span class="spec-label">Design</span>
+                    <span class="spec-val">Eco Architect Co.,Ltd.</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">Photography</span>
+                    <span class="spec-val">Pellentesque Consulting</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">Location</span>
+                    <span class="spec-val">ภูเก็ต, ประเทศไทย</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">Collaboration</span>
+                    <span class="spec-val">Quisque sagittis Studio</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">Year</span>
+                    <span class="spec-val">2024</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">Type</span>
+                    <span class="spec-val">Hospitality / Eco Hotel</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════
+         GALLERY
+    ══════════════════════════════ -->
+    <section class="project-gallery">
+        <div class="gallery">
+            <div class="gallery__item" data-src="/assets/images/project-details/2.webp" data-orientation="landscape"></div>
+            <div class="gallery__item" data-src="/assets/images/project-details/5.webp" data-orientation="portrait"></div>
+            <div class="gallery__item" data-src="/assets/images/project-details/4.webp" data-orientation="portrait"></div>
+            <div class="gallery__item" data-src="/assets/images/project-details/3.webp" data-orientation="landscape"></div>
+            <div class="gallery__item" data-src="/assets/images/project-details/6.webp" data-orientation="landscape"></div>
+            <div class="gallery__item" data-src="/assets/images/project-details/7.webp" data-orientation="landscape"></div>
+            <div class="gallery__item" data-src="/assets/images/project-details/8.webp" data-orientation="landscape"></div>
+            <div class="gallery__item" data-src="/assets/images/project-details/9.webp" data-orientation="portrait"></div>
+            <div class="gallery__item" data-src="/assets/images/project-details/10.webp" data-orientation="portrait"></div>
+        </div>
+    </section>
+
+</div>
+
+<!-- ══════════════════════════════
+     FOOTER (injected)
+══════════════════════════════ -->
+<div data-component="footer"></div>
+
+<script src="js/components.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+<script src="js/animations.js" defer></script>
+</body>
+</html>

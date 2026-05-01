@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ผลงาน — Eco Architect Co.,Ltd.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+Thai+Looped:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* ─────────────────────────────────────
+           PAGE BANNER
+        ───────────────────────────────────── */
+        .page-banner {
+            padding: 8rem var(--sp-margin) var(--sp-xl);
+            display: flex; flex-direction: column;
+            align-items: center; gap: var(--sp-md);
+        }
+        .page-banner h1 {
+            font-weight: 600; font-size: var(--fs-h1);
+            line-height: var(--lh-h1); letter-spacing: var(--ls-h1);
+            text-align: center;
+        }
+        .page-banner-sub {
+            font-weight: 700; font-size: var(--fs-label);
+            line-height: var(--lh-label); letter-spacing: var(--ls-label);
+            text-align: center;
+        }
+        .page-banner-sub-mobile { display: none; }
+
+        /* ─────────────────────────────────────
+           PROJECTS SECTION
+        ───────────────────────────────────── */
+        .projects {
+            padding: 0 var(--sp-margin) var(--sp-xl);
+            display: flex; flex-direction: column; gap: var(--sp-md);
+        }
+        .proj-header {
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .projects-grid {
+            display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--sp-gap);
+        }
+        .proj-card { grid-column: span 6; }
+
+        /* ─────────────────────────────────────
+           TABLET  (769px – 1023px)
+        ───────────────────────────────────── */
+        @media (min-width: 769px) and (max-width: 1023px) {
+            .page-banner { padding: 6rem var(--sp-margin) var(--sp-md); }
+        }
+
+        /* ─────────────────────────────────────
+           MOBILE  (≤ 768px)
+        ───────────────────────────────────── */
+        @media (max-width: 768px) {
+            .page-banner { padding: var(--sp-xxxl) var(--sp-margin) var(--sp-xxxl); align-items: flex-start; gap: var(--sp-sm); margin-block: var(--sp-md); }
+            .page-banner h1 { font-size: 2.5rem; line-height: 2.75rem; letter-spacing: -0.0625rem; text-align: left; }
+            .page-banner-sub { display: none; }
+            .eyebrow {order: 1;}
+            .projects-grid { grid-template-columns: 1fr; }
+            .proj-card { grid-column: 1; }
+            .proj-header { flex-direction: column; align-items: flex-start; gap: var(--sp-xl); }
+        }
+    </style>
+</head>
+<body>
+<div class="page-overlay"></div>
+<div class="page">
+
+    <!-- ══════════════════════════════
+         NAVIGATION (injected)
+    ══════════════════════════════ -->
+    <div data-component="navbar"></div>
+
+    <!-- ══════════════════════════════
+         PAGE BANNER
+    ══════════════════════════════ -->
+    <section class="page-banner">
+        <h1>ผลงานของเรา</h1>
+        <p class="page-banner-sub">Architecture &amp; Design Redefined</p>
+    </section>
+
+    <!-- ══════════════════════════════
+         PROJECTS GRID
+    ══════════════════════════════ -->
+    <section class="projects">
+        <div class="proj-header">
+            <div class="eyebrow">
+                <div class="ico-outline"></div>
+                <span>ผลงาน</span>
+            </div>
+            <a class="btn-inv" href="contact.html">
+                ติดต่อเรา
+                <img src="/assets/icon/ui/arrow/inverse.svg" alt="">
+            </a>
+        </div>
+
+        <div class="projects-grid">
+            <div data-component="project-card"
+                 data-title="บ้านริมน้ำพัฒนาการ"
+                 data-location="กรุงเทพฯ, ประเทศไทย"
+                 data-image="assets/images/project/1.webp"
+                 data-url="project-detail.html"></div>
+            <div data-component="project-card"
+                 data-title="Herban Hotel"
+                 data-location="ภูเก็ต, ประเทศไทย"
+                 data-image="assets/images/project/2.webp"
+                 data-url="project-detail.html"></div>
+            <div data-component="project-card"
+                 data-title="Baan Ramindra"
+                 data-location="กรุงเทพฯ, ประเทศไทย"
+                 data-image="assets/images/project/3.webp"
+                 data-url="project-detail.html"></div>
+            <div data-component="project-card"
+                 class="proj-card--tall"
+                 data-title="ศูนย์ปฏิบัติธรรม ภูเก็ต"
+                 data-location="ภูเก็ต, ประเทศไทย"
+                 data-image="assets/images/project/4.webp"
+                 data-url="project-detail.html"></div>
+            <div data-component="project-card"
+                 data-title="APWP House"
+                 data-location="กรุงเทพฯ, ประเทศไทย"
+                 data-image="assets/images/project/5.webp"
+                 data-url="project-detail.html"></div>
+            <div data-component="project-card"
+                 data-title="Baan Tha-Mai"
+                 data-location="จันทบุรี, ประเทศไทย"
+                 data-image="assets/images/project/6.webp"
+                 data-url="project-detail.html"></div>
+        </div>
+    </section>
+
+</div>
+
+<!-- ══════════════════════════════
+     FOOTER (injected)
+══════════════════════════════ -->
+<div data-component="footer"></div>
+
+<script src="js/components.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+<script src="js/animations.js" defer></script>
+</body>
+</html>

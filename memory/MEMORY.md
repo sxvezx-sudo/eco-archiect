@@ -1,0 +1,2 @@
+- [Project file structure](project_structure.md) — component-based structure after refactor; requires HTTP server; pages stay at root
+- [Project card component](project_card_component.md) — unified `.proj-card` in css/styles.css; variants, grid placement rules, what was removed from each page

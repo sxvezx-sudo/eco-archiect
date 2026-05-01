@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บริการ — Eco Architect Co.,Ltd.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+Thai+Looped:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* ─────────────────────────────────────
+           PAGE BANNER
+        ───────────────────────────────────── */
+        .page-banner {
+            padding: 8rem var(--sp-margin) var(--sp-xl);
+            display: flex; flex-direction: column;
+            align-items: center; gap: var(--sp-md);
+        }
+        .page-banner h1 {
+            font-weight: 600; font-size: var(--fs-h1);
+            line-height: var(--lh-h1); letter-spacing: var(--ls-h1);
+            text-align: center;
+        }
+        .page-banner-sub {
+            font-weight: 700; font-size: var(--fs-label);
+            line-height: var(--lh-label); letter-spacing: var(--ls-label);
+            text-align: center;
+        }
+
+        /* ─────────────────────────────────────
+           SERVICES SECTION
+        ───────────────────────────────────── */
+        .services {
+            padding: 0 var(--sp-margin) var(--sp-xl);
+            display: flex; flex-direction: column; gap: var(--sp-md);
+        }
+        .services-header {
+            display: grid; grid-template-columns: repeat(12, 1fr);
+            gap: var(--sp-gap);
+        }
+        .services-header .eyebrow { grid-column: 1 / -1; }
+        .services-header h2 {
+            grid-column: 1 / span 6;
+            font-weight: 600; font-size: var(--fs-h2a);
+            line-height: var(--lh-h2a); letter-spacing: var(--ls-h2a);
+        }
+        .services-header p {
+            grid-column: 8 / span 5;
+            font-family: var(--font-loop); font-size: var(--fs-body);
+            line-height: var(--lh-body); align-self: end;
+        }
+        .services-grid {
+            display: grid; grid-template-columns: repeat(12, 1fr);
+            gap: var(--sp-gap); row-gap: 0;
+        }
+        .service-item {
+            grid-column: span 6;
+            padding: var(--sp-md) 0;
+            border-top: 1px solid var(--c-border);
+            display: flex; flex-direction: column; gap: var(--sp-sm);
+        }
+        .service-item:nth-child(odd) { padding-right: var(--sp-md); }
+        .service-item:nth-child(even) { padding-left: var(--sp-md); border-left: 1px solid var(--c-border); }
+        .service-num {
+            font-size: var(--fs-label); font-weight: 700;
+            letter-spacing: var(--ls-label); color: var(--c-muted);
+        }
+        .service-item h3 {
+            font-weight: 600; font-size: var(--fs-h2a);
+            line-height: var(--lh-h2a); letter-spacing: var(--ls-h2a);
+        }
+        .service-item p {
+            font-family: var(--font-loop); font-size: var(--fs-body);
+            line-height: var(--lh-body); color: var(--c-muted);
+            flex: 1;
+        }
+
+        /* ─────────────────────────────────────
+           TABLET  (769px – 1023px)
+        ───────────────────────────────────── */
+        @media (min-width: 769px) and (max-width: 1023px) {
+            .page-banner { padding: 6rem var(--sp-margin) var(--sp-md); }
+            .services-header h2 { grid-column: 1 / span 7; }
+            .services-header p { grid-column: 8 / span 5; }
+        }
+
+        /* ─────────────────────────────────────
+           MOBILE  (≤ 768px)
+        ───────────────────────────────────── */
+        @media (max-width: 768px) {
+            .page-banner {
+                padding: var(--sp-xxxl) var(--sp-margin) var(--sp-xxxl);
+                align-items: flex-start; gap: var(--sp-sm);
+                margin-block: var(--sp-md);
+            }
+            .page-banner h1 {
+                font-size: 2.5rem; line-height: 2.75rem;
+                letter-spacing: -0.0625rem; text-align: left;
+            }
+            .page-banner-sub { display: none; }
+            .services-header h2,
+            .services-header p { grid-column: 1 / -1; }
+            .service-item {
+                grid-column: 1 / -1;
+                padding-right: 0; padding-left: 0;
+                border-left: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-overlay"></div>
+<div class="page">
+
+    <!-- ══════════════════════════════
+         NAVIGATION (injected)
+    ══════════════════════════════ -->
+    <div data-component="navbar"></div>
+
+    <!-- ══════════════════════════════
+         PAGE BANNER
+    ══════════════════════════════ -->
+    <section class="page-banner">
+        <h1>บริการของเรา</h1>
+        <p class="page-banner-sub">Architecture &amp; Design Services</p>
+    </section>
+
+    <!-- ══════════════════════════════
+         SERVICES SECTION
+    ══════════════════════════════ -->
+    <section class="services">
+        <div class="services-header">
+            <div class="eyebrow">
+                <div class="ico-outline"></div>
+                <span>บริการ</span>
+            </div>
+            <h2>สิ่งที่เราทำ<br>เพื่อคุณ</h2>
+            <p>เราให้บริการออกแบบสถาปัตยกรรมครบวงจร ด้วยแนวคิดที่ผสมผสานความงาม การใช้งาน และความยั่งยืนของสิ่งแวดล้อม</p>
+        </div>
+
+        <div class="services-grid">
+
+            <div class="service-item">
+                <span class="service-num">01</span>
+                <h3>ออกแบบที่พักอาศัย</h3>
+                <p>บ้านพักอาศัยที่ผสมผสานระหว่างความงามทางสถาปัตยกรรมและการใช้งานจริง โดยคำนึงถึงสภาพแวดล้อมและวิถีชีวิตของเจ้าของบ้านเป็นสำคัญ</p>
+                <a class="btn-text" href="contact.html">
+                    ติดต่อเรา
+                    <img src="/assets/icon/ui/arrow/default.svg" alt="">
+                </a>
+            </div>
+
+            <div class="service-item">
+                <span class="service-num">02</span>
+                <h3>ออกแบบเชิงพาณิชย์</h3>
+                <p>สำนักงาน โรงแรม ร้านค้า และพื้นที่เชิงพาณิชย์ที่สะท้อนอัตลักษณ์ของแบรนด์ และสร้างประสบการณ์ที่น่าจดจำให้กับผู้ใช้งาน</p>
+                <a class="btn-text" href="contact.html">
+                    ติดต่อเรา
+                    <img src="/assets/icon/ui/arrow/default.svg" alt="">
+                </a>
+            </div>
+
+            <div class="service-item">
+                <span class="service-num">03</span>
+                <h3>ออกแบบตกแต่งภายใน</h3>
+                <p>พื้นที่ภายในที่ออกแบบอย่างพิถีพิถัน สร้างความกลมกลืนระหว่างสุนทรียศาสตร์และการใช้งาน ตอบสนองทุกความต้องการของผู้อยู่อาศัย</p>
+                <a class="btn-text" href="contact.html">
+                    ติดต่อเรา
+                    <img src="/assets/icon/ui/arrow/default.svg" alt="">
+                </a>
+            </div>
+
+            <div class="service-item">
+                <span class="service-num">04</span>
+                <h3>ออกแบบภูมิทัศน์</h3>
+                <p>พื้นที่ภายนอกที่เชื่อมโยงอาคารกับธรรมชาติอย่างลงตัว สร้างสมดุลระหว่างสิ่งก่อสร้างและสิ่งแวดล้อมโดยรอบ</p>
+                <a class="btn-text" href="contact.html">
+                    ติดต่อเรา
+                    <img src="/assets/icon/ui/arrow/default.svg" alt="">
+                </a>
+            </div>
+
+            <div class="service-item">
+                <span class="service-num">05</span>
+                <h3>ให้คำปรึกษา</h3>
+                <p>คำแนะนำจากผู้เชี่ยวชาญด้านสถาปัตยกรรมในทุกขั้นตอน ตั้งแต่การวางแผนเบื้องต้นจนถึงการก่อสร้างและการส่งมอบโครงการ</p>
+                <a class="btn-text" href="contact.html">
+                    ติดต่อเรา
+                    <img src="/assets/icon/ui/arrow/default.svg" alt="">
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+<!-- ══════════════════════════════
+     FOOTER (injected)
+══════════════════════════════ -->
+<div data-component="footer"></div>
+
+<script src="js/components.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+<script src="js/animations.js" defer></script>
+</body>
+</html>
