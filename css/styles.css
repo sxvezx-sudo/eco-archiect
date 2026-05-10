@@ -16,8 +16,9 @@
     --c-text:        #000000;
     --c-text-inv:    #f9f9f9;
     --c-muted:       #767676;
-    --c-brand:       #4F5341;
+    --c-brand:       #1F6FA0;
     --c-border:      #000000;
+    --c-border-sec:  #aaaaaa;
     --c-divider:     #000000;
     --c-divider-sec: #aaaaaa;
     --c-inv-sec:     #555555;
@@ -50,6 +51,8 @@
     --ls-h1:  -0.125rem; --ls-h2a: -0.125rem; --ls-h2b: -0.125rem;
     --fs-body: 1rem; --lh-body: 1.5rem;
     --fs-label: 1rem; --lh-label: 1rem; --ls-label: -0.01rem;
+    --fs-title-sm: clamp(1.25rem,  calc(0.6rem   + 1.524vw), 2rem);
+    --fs-title-lg: clamp(1.5rem, calc(0.943rem + 2.286vw), 3rem);
 }
 
 html { scroll-behavior: smooth; }
@@ -122,6 +125,29 @@ body {
     flex: 1; display: flex; flex-direction: column; justify-content: flex-end;
     padding: var(--sp-sm) var(--sp-md); gap: var(--sp-xs);
 }
+
+/* ─────────────────────────────────────
+   SERVICE CARD
+───────────────────────────────────── */
+.svc-card {
+    border: 1px solid var(--c-border);
+    padding: var(--sp-md);
+    display: flex; flex-direction: column; gap: var(--sp-sm);
+    position: relative;
+    transition: transform 0.2s, border-color 0.2s;
+}
+.svc-card:hover { transform: translateY(-3px); border-color: var(--c-brand); }
+.svc-card-link { position: absolute; inset: 0; z-index: 0; }
+.svc-card-eyebrow { display: flex; align-items: center; gap: var(--sp-sm); }
+.svc-card-name {
+    font-weight: 600; font-size: var(--fs-title-sm); line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+.svc-card-desc {
+    font-family: var(--font-loop); font-size: var(--fs-body); line-height: var(--lh-body);
+    color: var(--c-muted); flex: 1;
+}
+.svc-card-cta { position: relative; z-index: 1; align-self: flex-start; }
 
 /* ─────────────────────────────────────
    BUTTON UTILITIES
@@ -398,6 +424,8 @@ body {
     .f-nav-item.desktop-only { display: none; }
     .f-social  { grid-column: 1; grid-row: 4; }
     .f-copy    { grid-column: 1; grid-row: 5; }
+
+    .svc-card:hover { transform: none; border-color: var(--c-border); }
 
     .proj-card:hover .proj-card-img img { transform: none; }
     .proj-card:hover .card-name-text    { text-decoration: none; }

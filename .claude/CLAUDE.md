@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Production DEMO website for **Eco Architect Co.,Ltd.**, a Thai architecture firm based in Phuket. Four static HTML pages share a common CSS file and JavaScript-injected nav/footer components. No build step, no framework — deploy to any static host.
+Production website for **Eco Architect Co.,Ltd.**, a Thai architecture firm based in Phuket. Four static HTML pages share a common CSS file. No build step, no framework — deploy to any static host.
 
 ---
 

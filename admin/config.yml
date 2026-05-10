@@ -56,11 +56,12 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { name: name,  label: Name,            widget: string }
-      - { name: role,  label: Role,             widget: string }
-      - { name: photo, label: Photo,            widget: image }
-      - { name: bio,   label: Bio,              widget: text,   required: false }
-      - { name: order, label: "Display Order",  widget: number, default: 99 }
+      - { name: name,  label: Name,             widget: string }
+      - { name: role,  label: Role,              widget: string }
+      - { name: photo, label: Photo,             widget: image }
+      - { name: motto, label: "คติประจำตัว",    widget: string, required: false, hint: "แสดงด้านหลังการ์ดสมาชิก" }
+      - { name: bio,   label: Bio,               widget: text,   required: false }
+      - { name: order, label: "Display Order",   widget: number, default: 99 }
 
   # ──────────────────────────────────────
   # TESTIMONIALS

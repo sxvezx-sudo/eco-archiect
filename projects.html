@@ -55,13 +55,15 @@
            MOBILE  (≤ 768px)
         ───────────────────────────────────── */
         @media (max-width: 768px) {
-            .page-banner { padding: var(--sp-xxxl) var(--sp-margin) var(--sp-xxxl); align-items: flex-start; gap: var(--sp-sm); margin-block: var(--sp-md); }
+            .page-banner { padding: var(--sp-xxxl) var(--sp-margin) var(--sp-md); align-items: flex-start; gap: var(--sp-sm); margin-top: var(--sp-md); }
             .page-banner h1 { font-size: 2.5rem; line-height: 2.75rem; letter-spacing: -0.0625rem; text-align: left; }
             .page-banner-sub { display: none; }
             .eyebrow {order: 1;}
+            .projects { gap: var(--sp-gap);}
             .projects-grid { grid-template-columns: 1fr; }
             .proj-card { grid-column: 1; }
             .proj-header { flex-direction: column; align-items: flex-start; gap: var(--sp-xl); }
+            .btn-text { display: none;}
         }
     </style>
 </head>
@@ -91,43 +93,43 @@
                 <div class="ico-outline"></div>
                 <span>ผลงาน</span>
             </div>
-            <a class="btn-inv" href="contact.html">
+            <a class="btn-text" href="contact.html">
                 ติดต่อเรา
-                <img src="/assets/icon/ui/arrow/inverse.svg" alt="">
+                <img src="/assets/icon/ui/arrow/default.svg" alt="">
             </a>
         </div>
 
         <div class="projects-grid">
             <div data-component="project-card"
-                 data-title="บ้านริมน้ำพัฒนาการ"
+                 data-title="รีสอร์ทท่ามกลางหุบเขาแก่งกระจาน"
                  data-location="กรุงเทพฯ, ประเทศไทย"
-                 data-image="assets/images/project/1.webp"
+                 data-image="the-custom-assets/p1/1.jpg"
                  data-url="project-detail.html"></div>
             <div data-component="project-card"
-                 data-title="Herban Hotel"
+                 data-title="บ้านน๊อตดาวน์"
                  data-location="ภูเก็ต, ประเทศไทย"
-                 data-image="assets/images/project/2.webp"
+                 data-image="the-custom-assets/p2/1.jpg"
                  data-url="project-detail.html"></div>
             <div data-component="project-card"
                  data-title="Baan Ramindra"
                  data-location="กรุงเทพฯ, ประเทศไทย"
-                 data-image="assets/images/project/3.webp"
+                 data-image="the-custom-assets/p3/2.jpg"
                  data-url="project-detail.html"></div>
             <div data-component="project-card"
                  class="proj-card--tall"
                  data-title="ศูนย์ปฏิบัติธรรม ภูเก็ต"
                  data-location="ภูเก็ต, ประเทศไทย"
-                 data-image="assets/images/project/4.webp"
+                 data-image="the-custom-assets/p7/508858320_1173029641533667_1764997957592056486_n.jpg"
                  data-url="project-detail.html"></div>
             <div data-component="project-card"
                  data-title="APWP House"
                  data-location="กรุงเทพฯ, ประเทศไทย"
-                 data-image="assets/images/project/5.webp"
+                 data-image="the-custom-assets/p4/1.jpg"
                  data-url="project-detail.html"></div>
             <div data-component="project-card"
                  data-title="Baan Tha-Mai"
                  data-location="จันทบุรี, ประเทศไทย"
-                 data-image="assets/images/project/6.webp"
+                 data-image="the-custom-assets/p6/1.jpg"
                  data-url="project-detail.html"></div>
         </div>
     </section>
