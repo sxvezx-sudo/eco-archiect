@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "eco-archiect",
+  "name": "the-custom",
   "compatibility_date": "2026-05-02",
   "observability": {
     "enabled": true
